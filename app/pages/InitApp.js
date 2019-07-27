@@ -1,17 +1,11 @@
 
 import React from "react";
-import {View, Text} from 'react-native';
-import LoginVC from './LoginVC';
-import FlexBox from '../FlexBox/FlexBox';
-import FetchTest from './FetchTest';
+import HomeList from './HomeList';
 
 export default class InitApp extends React.Component {
   render() {
-    return <FetchTest/>
     return (
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <Text>InitApp</Text>
-      </View>
-    );
+      <HomeList />//createAppContainer(AppNavigator)
+    )
   }
 }
