@@ -1,0 +1,110 @@
+{
+    "success": true,
+    "errCode": null,
+    "errMsg": "操作成功",
+    "body": {
+        "pageSize": 10,
+        "page": 1,
+        "totalCount": 15,
+        "list": [
+            {
+                "wareId": "EFBC31EA653140018FCD878DFB1A43B7",
+                "ware": "长安逸动EV飞机4449版",
+                "warePictureUrl": "http://hsjry.oss-cn-hangzhou.aliyuncs.com/car/s50ev%EF%BC%8D%E5%8F%B3%E4%BE%A7135%E5%BA%A6-%E5%9B%9B%E8%89%B2%E5%88%86%E5%B1%82.png",
+                "guidancePrice": 207300,
+                "vehicleTypeID":"车型Id",
+                "vehicleTypeName":"车型",
+                "label": "热卖",
+                "labelColor": "#FF0000"
+            },
+            {
+                "wareId": "EFBC31EA653140018FCD878DFB1A43B1",
+                "ware": "长安逸动EV飞机4449版",
+                "warePictureUrl": "http://hsjry.oss-cn-hangzhou.aliyuncs.com/car/s50ev%EF%BC%8D%E5%8F%B3%E4%BE%A7135%E5%BA%A6-%E5%9B%9B%E8%89%B2%E5%88%86%E5%B1%82.png",
+                "guidancePrice": 207300,
+                "vehicleTypeID":"车型Id",
+                "vehicleTypeName":"车型",
+                "label": "热卖",
+                "labelColor": "#FF0000"
+            },
+            {
+                "wareId": "EFBC31EA653140018FCD878DFB1A43B2",
+                "ware": "长安逸动EV飞机4449版",
+                "warePictureUrl": "http://hsjry.oss-cn-hangzhou.aliyuncs.com/car/s50ev%EF%BC%8D%E5%8F%B3%E4%BE%A7135%E5%BA%A6-%E5%9B%9B%E8%89%B2%E5%88%86%E5%B1%82.png",
+                "guidancePrice": 207300,
+                "vehicleTypeID":"车型Id",
+                "vehicleTypeName":"车型",
+                "label": "热卖",
+                "labelColor": "#FF0000"
+            },
+            {
+                "wareId": "EFBC31EA653140018FCD878DFB1A43B3",
+                "ware": "长安逸动EV飞机4449版",
+                "warePictureUrl": "http://hsjry.oss-cn-hangzhou.aliyuncs.com/car/s50ev%EF%BC%8D%E5%8F%B3%E4%BE%A7135%E5%BA%A6-%E5%9B%9B%E8%89%B2%E5%88%86%E5%B1%82.png",
+                "guidancePrice": 207300,
+                "vehicleTypeID":"车型Id",
+                "vehicleTypeName":"车型",
+                "label": "热卖",
+                "labelColor": "#FF0000"
+            },
+            {
+                "wareId": "EFBC31EA653140018FCD878DFB1A43B4",
+                "ware": "长安逸动EV飞机4449版",
+                "warePictureUrl": "http://hsjry.oss-cn-hangzhou.aliyuncs.com/car/s50ev%EF%BC%8D%E5%8F%B3%E4%BE%A7135%E5%BA%A6-%E5%9B%9B%E8%89%B2%E5%88%86%E5%B1%82.png",
+                "guidancePrice": 207300,
+                "vehicleTypeID":"车型Id",
+                "vehicleTypeName":"车型",
+                "label": "热卖",
+                "labelColor": "#FF0000"
+            },
+            {
+                "wareId": "EFBC31EA653140018FCD878DFB1A43B5",
+                "ware": "长安逸动EV飞机4449版",
+                "warePictureUrl": "http://hsjry.oss-cn-hangzhou.aliyuncs.com/car/s50ev%EF%BC%8D%E5%8F%B3%E4%BE%A7135%E5%BA%A6-%E5%9B%9B%E8%89%B2%E5%88%86%E5%B1%82.png",
+                "guidancePrice": 207300,
+                "vehicleTypeID":"车型Id",
+                "vehicleTypeName":"车型",
+                "label": "热卖",
+                "labelColor": "#FF0000"
+            },
+            {
+                "wareId": "EFBC31EA653140018FCD878DFB1A43B6",
+                "ware": "长安逸动EV飞机4449版",
+                "warePictureUrl": "http://hsjry.oss-cn-hangzhou.aliyuncs.com/car/s50ev%EF%BC%8D%E5%8F%B3%E4%BE%A7135%E5%BA%A6-%E5%9B%9B%E8%89%B2%E5%88%86%E5%B1%82.png",
+                "guidancePrice": 207300,
+                "vehicleTypeID":"车型Id",
+                "vehicleTypeName":"车型",
+                "label": "热卖",
+                "labelColor": "#FF0000"
+            },
+            {
+                "wareId": "EFBC31EA653140018FCD878DFB1A43B7",
+                "ware": "长安逸动EV飞机4449版",
+                "warePictureUrl": "http://hsjry.oss-cn-hangzhou.aliyuncs.com/car/s50ev%EF%BC%8D%E5%8F%B3%E4%BE%A7135%E5%BA%A6-%E5%9B%9B%E8%89%B2%E5%88%86%E5%B1%82.png",
+                "guidancePrice": 207300,
+                "vehicleTypeID":"车型Id",
+                "vehicleTypeName":"车型",
+                "label": "热卖",
+                "labelColor": "#FF0000"
+            },
+            {
+                "wareId": "EFBC31EA653140018FCD878DFB1A43B8",
+                "ware": "长安逸动EV飞机4449版",
+                "warePictureUrl": "http://hsjry.oss-cn-hangzhou.aliyuncs.com/car/s50ev%EF%BC%8D%E5%8F%B3%E4%BE%A7135%E5%BA%A6-%E5%9B%9B%E8%89%B2%E5%88%86%E5%B1%82.png",
+                "guidancePrice": 207300,
+                "vehicleTypeID":"车型Id",
+                "vehicleTypeName":"车型"
+            },
+            {
+                "wareId": "EFBC31EA653140018FCD878DFB1A43B9",
+                "ware": "长安逸动EV飞机4449版",
+                "warePictureUrl": "http://hsjry.oss-cn-hangzhou.aliyuncs.com/car/s50ev%EF%BC%8D%E5%8F%B3%E4%BE%A7135%E5%BA%A6-%E5%9B%9B%E8%89%B2%E5%88%86%E5%B1%82.png",
+                "guidancePrice": 207300,
+                "vehicleTypeID":"车型Id",
+                "vehicleTypeName":"车型",
+                "label": "热卖",
+                "labelColor": "#FF0000"
+            }
+        ]
+    }
+}
