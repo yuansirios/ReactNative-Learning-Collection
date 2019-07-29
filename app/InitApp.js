@@ -1,6 +1,6 @@
 
 import React from "react";
-import HomeList from './HomeList';
+import HomeList from './Pages/HomeList';
 
 export default class InitApp extends React.Component {
   render() {
