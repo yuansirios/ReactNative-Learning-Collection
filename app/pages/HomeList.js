@@ -11,18 +11,20 @@ import {
 } from 'react-native';
 
 export default class HomeList extends Component {
-  static navigationOptions = {
+  static navigationOptions = ({ navigation, screenProps }) => ({
     title: 'ReactNative',
-  }
+    //返回文字需要在前一个页面设置
+    headerBackTitle:'返回' 
+  });
 
   constructor(props) {
     super(props);
     this.state = {
       dataSource: [
-        { key: '1、导航跳转-常用设置', component: 'Welcome' },
-        { key: '2、FlatList详细使用', component: '123' },
-        { key: '3', component: '123' },
-        { key: '4', component: '123' },
+        { key: '1、导航跳转-常用设置', component: 'Navigation' },
+        { key: '2、FlatList详细使用', component: 'FlatList' },
+        { key: '3、SectionList详细使用', component: '' },
+        { key: '4、ScrollView详细使用', component: '' },
         { key: '5', component: '123' },
         { key: '6', component: '123' },
         { key: '7', component: '123' },
@@ -33,7 +35,6 @@ export default class HomeList extends Component {
     };
   }
   render() {
-    const {navigate} = this.props.navigation;
     return (
       <View style={styles.homeList}>
         <FlatList

@@ -1,23 +1,24 @@
 
 import React from 'react';
-import { Text } from 'react-native';
 import HomeList from './Pages/HomeList'
-import { createStackNavigator, createAppContainer } from "react-navigation";
+import NavTest from './Pages/NavTest'
+import NavNext from './Pages/NavNext'
+import FlatListTest from './Pages/FlatListTest'
 
-class WelcomePage extends React.Component {
-  render() {
-    return (
-      <Text>Welcome</Text>
-    )
-  }
-}
+import { createStackNavigator, createAppContainer } from "react-navigation";
 
 const AppNavigator = createStackNavigator({
   Home: {
     screen: HomeList
   },
-  Welcome:{
-    screen:WelcomePage
+  Navigation: {
+    screen: NavTest
+  },
+  Navigation2: {
+    screen: NavNext
+  },
+  FlatList: {
+    screen: FlatListTest
   }
 });
 
