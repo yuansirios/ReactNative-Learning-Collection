@@ -5,6 +5,7 @@ import NavTest from './Pages/NavTest'
 import NavNext from './Pages/NavNext'
 import FlatListTest from './Pages/FlatListTest'
 import SectionListTest from './Pages/SectionListTest'
+import ScrollViewTest from './Pages/ScrollViewTest'
 
 import { createStackNavigator, createAppContainer } from "react-navigation";
 
@@ -23,6 +24,9 @@ const AppNavigator = createStackNavigator({
   },
   SectionList: {
     screen: SectionListTest
+  },
+  ScrollView: {
+    screen: ScrollViewTest
   }
 });
 

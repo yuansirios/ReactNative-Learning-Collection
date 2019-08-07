@@ -24,7 +24,7 @@ export default class HomeList extends Component {
         { key: '1、导航跳转-常用设置', component: 'Navigation' },
         { key: '2、FlatList详细使用', component: 'FlatList' },
         { key: '3、SectionList详细使用', component: 'SectionList' },
-        { key: '4、ScrollView详细使用', component: '' },
+        { key: '4、ScrollView详细使用', component: 'ScrollView' },
         { key: '5、Button和TouchableOpacity', component: '123' },
         { key: '6', component: '123' },
         { key: '7', component: '123' },
