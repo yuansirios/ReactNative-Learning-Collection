@@ -12,7 +12,7 @@ import {
 
 export default class HomeList extends Component {
   static navigationOptions = ({ navigation, screenProps }) => ({
-    title: 'ReactNative',
+    title: '示例详解',
     //返回文字需要在前一个页面设置
     headerBackTitle:'返回' 
   });
