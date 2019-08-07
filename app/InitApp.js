@@ -4,6 +4,7 @@ import HomeList from './Pages/HomeList'
 import NavTest from './Pages/NavTest'
 import NavNext from './Pages/NavNext'
 import FlatListTest from './Pages/FlatListTest'
+import SectionListTest from './Pages/SectionListTest'
 
 import { createStackNavigator, createAppContainer } from "react-navigation";
 
@@ -19,6 +20,9 @@ const AppNavigator = createStackNavigator({
   },
   FlatList: {
     screen: FlatListTest
+  },
+  SectionList: {
+    screen: SectionListTest
   }
 });
 
