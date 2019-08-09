@@ -192,12 +192,10 @@ export default class FlatListTest extends PureComponent {
                 </View>
                 <View style={{ flex: 1, justifyContent: 'space-between', paddingLeft: 10, paddingTop: 20, paddingRight: 10, paddingBottom: 20 }}>
                     <Text style={{ fontSize: 16 }}>{item.value}</Text>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', height: 20, backgroundColor: 'green' }}>
-                        <Text style={{ fontSize: 16 }}>指导价：</Text>
+                    <Text style={{ fontSize: 16 }}>指导价：
                         <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'red' }}>10000000</Text>
-                    </View>
+                    </Text>
                 </View>
-
             </View>
         )
     }
