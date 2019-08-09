@@ -86,7 +86,7 @@ export default class ButtonTest extends Component {
 
     _onStatePress() {
         Alert.alert(
-            'ref示例',
+            'state示例',
             '',
             [
                 { text: '绿色按钮不可用', onPress: this._gBtnUnable.bind(this) },

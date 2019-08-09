@@ -26,11 +26,6 @@ export default class HomeList extends Component {
         { key: '3、SectionList详细使用', component: 'SectionList' },
         { key: '4、ScrollView详细使用', component: 'ScrollView' },
         { key: '5、Button、TouchableOpacity、state、ref', component: 'ButtonView' },
-        { key: '6、TabBar常用设置', component: '123' },
-        { key: '7', component: '123' },
-        { key: '8', component: '123' },
-        { key: '9', component: '123' },
-        { key: '10', component: '123' },
       ],
     };
   }

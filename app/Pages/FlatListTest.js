@@ -2,10 +2,12 @@ import React, { PureComponent } from 'react';
 import {
     View,
     Text,
+    Image,
     FlatList,
     StyleSheet,
     TouchableOpacity,
-    ActivityIndicator
+    ActivityIndicator,
+    SegmentedControlIOS
 } from 'react-native';
 
 let totalPage = 3;//总的页数
@@ -28,14 +30,37 @@ class FlatListItem extends PureComponent {
     }
 }
 
+class FlatHeadView extends PureComponent {
+    render() {
+        return (
+            <View style={{ flex: 1 }}>
+                <SegmentedControlIOS
+                    values={['分页加载', '动态行高']}
+                    selectedIndex={0}
+                    onChange={this._onChange.bind(this)}
+                />
+            </View>
+        )
+    }
+
+    _onChange = (event) => {
+        let index = event.nativeEvent.selectedSegmentIndex
+        this.props.didChange(index)
+    }
+}
+
+//解决navigationOptions拿不到this
+let that;
+
 export default class FlatListTest extends PureComponent {
 
     static navigationOptions = ({ navigation, screenProps }) => ({
-        title: 'FlatList示例详解',
+        headerTitle: <FlatHeadView didChange={(index) => that.getSegmentIndex(index)} />
     });
 
     constructor(props) {
         super(props);
+        that = this;
 
         this.state = {
             page: 1,
@@ -46,7 +71,8 @@ export default class FlatListTest extends PureComponent {
             dataArray: [],
             showFoot: 0, // 控制foot， 0：隐藏footer  1：已加载完成,没有更多数据   2 ：显示加载中
             isRefreshing: false,//下拉控制
-            selected: (new Map())
+            selected: (new Map()),
+            selectedIndex: 0
         };
     }
 
@@ -55,15 +81,25 @@ export default class FlatListTest extends PureComponent {
     }
 
     render() {
-        //第一次加载等待的view
-        if (this.state.isLoading && !this.state.error) {
-            return this._renderLoadingView();
-        } else if (this.state.error) {
-            //请求失败view
-            return this.renderErrorView();
+        if (this.state.selectedIndex == 0) {
+            //第一次加载等待的view
+            if (this.state.isLoading && !this.state.error) {
+                return this._renderLoadingView();
+            } else if (this.state.error) {
+                //请求失败view
+                return this.renderErrorView();
+            }
+            //加载数据
+            return this._renderLeftList();
+        } else {
+            return this._renderRightList();
         }
-        //加载数据
-        return this._renderData();
+    }
+
+    getSegmentIndex(index) {
+        this.setState({
+            selectedIndex: index
+        })
     }
 
     //加载等待页
@@ -103,8 +139,8 @@ export default class FlatListTest extends PureComponent {
     // 这里指定使用数组下标作为唯一索引
     _keyExtractor = (item, index) => index;
 
-    //渲染数据  
-    _renderData() {
+    //渲染分页视图 
+    _renderLeftList() {
         return (
             <FlatList
                 data={this.state.dataArray}
@@ -125,6 +161,45 @@ export default class FlatListTest extends PureComponent {
                 getItemLayout={(data, index) => ({ length: 40, offset: (40 + 1) * index, index })}
             />
         );
+    }
+
+    //渲染动态换行视图 
+    _renderRightList() {
+        const rightArr = [
+            { key: '1', value: '长安逸动EV飞机4449版长安逸动EV飞机4449版长安逸动EV飞机4449版长安逸动EV飞机4449版' },
+            { key: '2', value: '长安逸动EV飞机4449版长安逸动EV飞机' },
+            { key: '3', value: '长安逸动EV飞机4449版长安逸动EV飞机4449版长安逸动EV飞机4449版长安逸动EV飞机4449版长安逸动EV飞机逸动EV飞机4449版长安逸动EV飞机4449版长安逸动EV飞机逸动EV飞机4449版长安逸动EV飞机4449版长安逸动EV飞机逸动EV飞机4449版长安逸动EV飞机4449版长安逸动EV飞机' },
+            { key: '4', value: '长安逸动EV飞机4449版长安逸动EV飞机4449版长安逸动EV' },
+            { key: '5', value: '长安逸动EV飞机4449版长安逸' },
+            { key: '6', value: '长安逸动EV飞机4449版长安逸动EV飞机4449版长安逸动EV飞机4449版长安逸动EV飞机4449版长安逸动EV飞机4449版长安逸动EV飞机' }
+        ]
+        return (
+            <FlatList
+                data={rightArr}
+                renderItem={this._renderRightItem}
+                ItemSeparatorComponent={this._renderItemSeparatorComponent}
+                ListFooterComponent={this._renderItemSeparatorComponent}
+            />
+        );
+    }
+
+    _renderRightItem = ({ item }) => {
+        return (
+            <View style={{ flexDirection: 'row', flex: 1 }}>
+                <View style={{ paddingLeft: 20, paddingTop: 20, paddingBottom: 20, justifyContent: 'center' }}>
+                    <Image style={{ width: 150, height: 100, backgroundColor: 'green' }}
+                        source={{ uri: 'http://hsjry.oss-cn-hangzhou.aliyuncs.com/car/s50ev%EF%BC%8D%E5%8F%B3%E4%BE%A7135%E5%BA%A6-%E5%9B%9B%E8%89%B2%E5%88%86%E5%B1%82.png' }} />
+                </View>
+                <View style={{ flex: 1, justifyContent: 'space-between', paddingLeft: 10, paddingTop: 20, paddingRight: 10, paddingBottom: 20 }}>
+                    <Text style={{ fontSize: 16 }}>{item.value}</Text>
+                    <View style={{ flexDirection: 'row', alignItems: 'center', height: 20, backgroundColor: 'green' }}>
+                        <Text style={{ fontSize: 16 }}>指导价：</Text>
+                        <Text style={{ fontSize: 16, fontWeight: 'bold', color: 'red' }}>10000000</Text>
+                    </View>
+                </View>
+
+            </View>
+        )
     }
 
     // 自定义分割线
