@@ -26,6 +26,7 @@ export default class HomeList extends Component {
         { key: '3、SectionList详细使用', component: 'SectionList' },
         { key: '4、ScrollView详细使用', component: 'ScrollView' },
         { key: '5、Button、TouchableOpacity、state、ref', component: 'ButtonView' },
+        { key: '6、this & bind 详解', component: 'ThisTest' },
       ],
     };
   }
