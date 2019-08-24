@@ -8,6 +8,7 @@ import SectionListTest from './Pages/SectionListTest'
 import ScrollViewTest from './Pages/ScrollViewTest'
 import ButtonTest from './Pages/ButtonTest'
 import ThisTest from './Pages/ThisTest'
+import LoginView from './Pages/LoginView'
 
 import { createStackNavigator, createAppContainer } from "react-navigation";
 
@@ -35,6 +36,9 @@ const AppNavigator = createStackNavigator({
   },
   ThisTest: {
     screen: ThisTest
+  },
+  LoginView: {
+    screen: LoginView
   }
 });
 
