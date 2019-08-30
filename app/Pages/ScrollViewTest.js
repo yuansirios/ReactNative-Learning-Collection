@@ -7,6 +7,8 @@ import {
     StyleSheet,
 } from 'react-native';
 
+import YSAutoBanner from '../Component/YSAutoBanner'
+
 let Dimensions = require('Dimensions');
 let { width, height } = Dimensions.get('window');
 let ImageData = [
@@ -41,6 +43,27 @@ class ScrollItemView extends Component {
     }
 }
 
+var list = [{
+    "img": "http://hsjry.oss-cn-hangzhou.aliyuncs.com/car/s50ev%EF%BC%8D%E5%8F%B3%E4%BE%A7135%E5%BA%A6-%E5%9B%9B%E8%89%B2%E5%88%86%E5%B1%82.png",
+    "title": "图1"
+},
+{
+    "img": "http://hsjry.oss-cn-hangzhou.aliyuncs.com/car/s50ev%EF%BC%8D%E6%AD%A3%E5%89%8D-%E5%9B%9B%E8%89%B2%E5%88%86%E5%B1%82.png",
+    "title": "图2"
+},
+{
+    "img": "http://image.jingzhengu.com/Vehicle/logo/model/4501_904.jpg",
+    "title": "图3"
+},
+{
+    "img": "http://image.jingzhengu.com/Vehicle/logo/model/4501_904.jpg",
+    "title": "图4"
+},
+{
+    "img": "http://hsjry.oss-cn-hangzhou.aliyuncs.com/car/s50ev%EF%BC%8D%E5%8F%B3%E4%BE%A7135%E5%BA%A6-%E5%9B%9B%E8%89%B2%E5%88%86%E5%B1%82.png",
+    "title": "图5"
+}];
+
 export default class ScrollViewTest extends Component {
     static navigationOptions = ({ navigation, screenProps }) => ({
         title: 'ScrollView示例详解',
@@ -49,17 +72,16 @@ export default class ScrollViewTest extends Component {
     static defaultProps = {
         duration: 2000
     }
-
-    //关闭页面，释放定时器
-    componentWillUnmount(){
-        this.onScrollerBeginDrag()
-    }
-
+    
     constructor(props) { 
         super(props);
         this.state = {
             currentPage: 0
         };
+    }
+
+    componentWillUnmount() {
+        console.log("%s", "ScrollViewTest 释放");
     }
 
     render() {
@@ -73,133 +95,10 @@ export default class ScrollViewTest extends Component {
                 </ScrollView>
 
                 <Text>轮播图示例</Text>
+                <YSAutoBanner imageDataArr={list}/>
                 
-                <ScrollView ref="scrollerView"
-                    style={{}}
-                    // 水平滚动
-                    horizontal={true}
-                    // 是否显示水平滚动条
-                    showsHorizontalScrollIndicator={false}
-                    // 安页滚动
-                    pagingEnabled={true}
-                    //滚动动画结束时调用此函数
-                    onMomentumScrollEnd={(e) => this.onAnimationEnd(e)}
-                    //开始拖拽
-                    onScrollBeginDrag={(e) => this.onScrollerBeginDrag(e)}
-                    //停止拖拽
-                    onScrollEndDrag={(e) => this.onScrollEndDrag(e)}
-                >
-                    {this.creatImages()}
-                </ScrollView>
-                {/*底部页面指示器*/}
-                <View style={styles.pageViewStyle}>
-                    {/*返回5个圆点*/}
-                    {this.renderPageIndex()}
-                </View>
             </View>
         )
-    }
-
-    // 开始拖拽时调用
-    onScrollerBeginDrag() {
-        // 停止定时器
-        clearInterval(this.timer);
-    }
-    // 停止拖拽时调用
-    onScrollEndDrag() {
-        // 开启定时器
-        this.startTime();
-    }
-    // 复杂操作
-    componentDidMount() {
-        // debugger
-        // 开启定时器
-        this.startTime();
-    }
-
-    // 开启定时器
-    startTime() {
-        // 1.拿到scrollerView
-        let scrollerView = this.refs.scrollerView;
-        let imageCount = ImageData.length;
-        // 2.添加定时器
-        // 2.1 设置圆点
-        let activePage = 0;
-        this.timer = setInterval(() => {
-            // 2.2 判断
-            if ((this.state.currentPage + 1) >= imageCount) {
-                activePage = 0;
-            } else {
-                activePage = this.state.currentPage + 1;
-            }
-            // 2.3 更新状态机
-            this.setState({
-                // 当前页
-                currentPage: activePage
-            })
-            // 2.4 让scrollerVeiw滚动起来
-            let offsetX = activePage * width;
-            scrollerView.scrollTo({ x: offsetX, y: 0, animated: true });
-        }, this.props.duration);
-    }
-
-    //返回所有的图片
-    creatImages() {
-        //数组
-        let allImage = [];
-        //拿到图形数组
-        let imageArrs = ImageData;
-        //遍历
-        for (var i = 0; i < imageArrs.length; i++) {
-            //取出每一个单独的对象
-            var imageItem = imageArrs[i];
-            //创建组件放入数组
-            allImage.push(
-                <Image key={i} backgroundColor={imageItem.img} style={styles.imageStyle} >
-                </Image>
-            );
-        }
-        // 返回数组
-        return allImage;
-    }
-    // 返回页面指示器的圆点
-    renderPageIndex() {
-        // 数组
-        let indicatorArr = [];
-        //拿到图形数组
-        let imageArrs = ImageData;
-        //样式
-        var style;
-        //遍历
-        for (var i = 0; i < imageArrs.length; i++) {
-            // 判断
-            style = (i == this.state.currentPage) ? { color: 'orange' } : { color: '#E8E8E8' }
-
-
-            //放入圆点
-            indicatorArr.push(
-                // 多个样式使用[]数组来放
-                <Text key={i} style={[{ fontSize: 25 }, style]}>•</Text>
-            );
-        }
-        //返回
-        return indicatorArr;
-    }
-
-    // 当一帧滚动结束的时候调用
-    onAnimationEnd(e) {
-        // 1.求出水平方向的偏移量
-        var offsetX = e.nativeEvent.contentOffset.x;
-
-        // 2.求出当前的页数         floor函数 取整
-        var currentPage = Math.floor(offsetX / width);
-
-        // 3.更新状态机
-        this.setState({
-            // 当前页
-            currentPage: currentPage
-        })
-
     }
 }
 
