@@ -9,37 +9,50 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
+import SafeAreaView from 'react-native-safe-area-view';
+import { setSpText, scaleSizeH } from '../Tool/AdapterUtil';
 
 export default class HomeList extends Component {
   static navigationOptions = ({ navigation, screenProps }) => ({
     title: '示例详解',
     //返回文字需要在前一个页面设置
-    headerBackTitle:'返回' 
+    headerBackTitle: '返回'
   });
 
   constructor(props) {
     super(props);
     this.state = {
       dataSource: [
-        { key: '1、导航跳转-常用设置', component: 'Navigation' },
-        { key: '2、FlatList详细使用', component: 'FlatList' },
-        { key: '3、SectionList详细使用', component: 'SectionList' },
-        { key: '4、ScrollView详细使用', component: 'ScrollView' },
-        { key: '5、Button、TouchableOpacity、state、ref', component: 'ButtonView' },
-        { key: '6、this & bind 详解', component: 'ThisTest' },
-        { key: '7、实战-登录页面', component: 'LoginView' },
+        { key: '导航跳转-常用设置', component: 'Navigation' },
+        { key: 'FlatList详细使用', component: 'FlatList' },
+        { key: 'SectionList详细使用', component: 'SectionList' },
+        { key: 'ScrollView详细使用', component: 'ScrollView' },
+        { key: 'Button、TouchableOpacity、state、ref', component: 'ButtonView' },
+        { key: 'this & bind 详解', component: 'ThisTest' },
+        { key: '网络请求示例', component: 'FetchTest' },
+        { key: '实战-登录页面', component: 'LoginView' },
+        { key: '输入文本框的双向绑定', component: 'TextInputTest' },
+        { key: '模态框实现弹窗效果', component: 'ModalViewTest' },
+        { key: 'Image图片加载和剪切', component: 'ImageTest' },
+        { key: '状态栏示例', component: 'StatusBarTest' },
+        { key: '默认布局动画', component: 'LayoutAnimationComp' },
+        { key: 'Animated动画库', component: 'AnimatedComp' },
+        { key: '拍照和相册操作', component: 'ImagePickerTest' },
+        { key: '网络信息查看', component: 'NetInfoAPI' },
       ],
     };
   }
   render() {
     return (
-      <View style={styles.homeList}>
-        <FlatList
-          data={this.state.dataSource}
-          renderItem={({ item }) => this._createListItem(item)}
-          ItemSeparatorComponent={this._separator}
-        />
-      </View>
+      <SafeAreaView>
+        <View style={styles.homeList}>
+          <FlatList
+            data={this.state.dataSource}
+            renderItem={({ item, index }) => this._createListItem(item, index)}
+            ItemSeparatorComponent={this._separator}
+          />
+        </View>
+      </SafeAreaView>
     );
   }
 
@@ -50,11 +63,11 @@ export default class HomeList extends Component {
    * @returns
    * @memberof HomeList
    */
-  _createListItem(item) {
+  _createListItem(item, index) {
     return (
       <TouchableOpacity activeOpacity={0.5} onPress={() => this._onItemClick(item)}>
         <View style={styles.homeCell}>
-          <Text style={{color:'white'}}>{item.key}</Text>
+          <Text style={{ color: 'white', fontSize: setSpText(30) }}>【{index}】{item.key}</Text>
         </View>
       </TouchableOpacity>
     );
@@ -77,8 +90,8 @@ export default class HomeList extends Component {
    * @memberof HomeList
    */
   _onItemClick(item) {
-    console.log("点击了："+item.key);
-    const {navigate} = this.props.navigation;
+    console.log("点击了：" + item.key);
+    const { navigate } = this.props.navigation;
     navigate(item.component);
   }
 
@@ -89,8 +102,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#998877"
   },
   homeCell: {
-    height: 50,
-    marginLeft:20,
+    height: scaleSizeH(80),
+    marginLeft: 20,
     justifyContent: "center"
   }
 });

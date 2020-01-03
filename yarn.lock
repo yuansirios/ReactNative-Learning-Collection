@@ -930,6 +930,11 @@
     eslint-plugin-react-native "3.6.0"
     prettier "1.16.4"
 
+"@react-native-community/netinfo@^5.2.0":
+  version "5.2.0"
+  resolved "https://registry.npm.taobao.org/@react-native-community/netinfo/download/@react-native-community/netinfo-5.2.0.tgz#0ad6d5d5cfd01d31d16ef819fe15c29fa7352bd4"
+  integrity sha1-CtbV1c/QHTHRbvgZ/hXCn6c1K9Q=
+
 "@react-navigation/core@~3.4.1":
   version "3.4.2"
   resolved "https://registry.npm.taobao.org/@react-navigation/core/download/@react-navigation/core-3.4.2.tgz#bec563e94fde40fbab3730cdc97f22afbb2a1498"
@@ -5102,10 +5107,27 @@ react-native-gesture-handler@^1.3.0:
     invariant "^2.2.4"
     prop-types "^15.7.2"
 
+react-native-image-picker@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.npm.taobao.org/react-native-image-picker/download/react-native-image-picker-1.1.0.tgz#c2a0523886edb4cf2cdc008ad0a71433142a4d53"
+  integrity sha1-wqBSOIbttM8s3ACK0KcUMxQqTVM=
+
+react-native-safe-area-context@^0.6.2:
+  version "0.6.2"
+  resolved "https://registry.npm.taobao.org/react-native-safe-area-context/download/react-native-safe-area-context-0.6.2.tgz#d467ac8a953426bfbb6d8f417222b0dc3952be7a"
+  integrity sha1-1GesipU0Jr+7bY9BciKw3DlSvno=
+
 react-native-safe-area-view@^0.14.1:
   version "0.14.8"
   resolved "https://registry.npm.taobao.org/react-native-safe-area-view/download/react-native-safe-area-view-0.14.8.tgz#ef33c46ff8164ae77acad48c3039ec9c34873e5b"
   integrity sha1-7zPEb/gWSud6ytSMMDnsnDSHPls=
+  dependencies:
+    hoist-non-react-statics "^2.3.1"
+
+react-native-safe-area-view@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npm.taobao.org/react-native-safe-area-view/download/react-native-safe-area-view-1.0.0.tgz#17be33aeb30702e07bb846378f4c9561e2dd6684"
+  integrity sha1-F74zrrMHAuB7uEY3j0yVYeLdZoQ=
   dependencies:
     hoist-non-react-statics "^2.3.1"
 
