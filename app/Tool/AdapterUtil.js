@@ -7,8 +7,9 @@
 let ReactNative = require('react-native');
 // 获取屏幕的dp
 let Dimensions = require('Dimensions');
-let screenW = Dimensions.get('window').width;
-let screenH = Dimensions.get('window').height;
+export let screenW = Dimensions.get('window').width;
+export let screenH = Dimensions.get('window').height;
+
 let fontScale = ReactNative.PixelRatio.getFontScale();
 let pixelRatio = ReactNative.PixelRatio.get();
 // 高保真的宽度和告诉

@@ -13,10 +13,11 @@ import SafeAreaView from 'react-native-safe-area-view';
 import { setSpText, scaleSizeH } from '../Tool/AdapterUtil';
 
 export default class HomeList extends Component {
-  static navigationOptions = ({ navigation, screenProps }) => ({
+  static navigationOptions = ({
     title: '示例详解',
-    //返回文字需要在前一个页面设置
-    headerBackTitle: '返回'
+    gesturesEnabled: false,   // 禁用手势返回
+    headerLeft:null,          // 取消左边按钮
+    headerBackTitle: '返回'    // 返回文字需要在前一个页面设置
   });
 
   constructor(props) {

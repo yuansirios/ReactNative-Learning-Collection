@@ -21,12 +21,22 @@ import NetInfoAPI from './Pages/NetInfoAPI'
 import LayoutAnimationComp from './Pages/Animation/LayoutAnimationComp'
 import AnimatedComp from './Pages/Animation/AnimatedComp'
 
+import GuideView from './Pages/Enter/GuideView'
+import SplashView from './Pages/Enter/SplashView'
+
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 const AppNavigator = createStackNavigator({
+  
+  SplashView: {
+    screen: SplashView
+  },
   Home: {
     screen: HomeList
+  },
+  GuideView: {
+    screen: GuideView
   },
   NetInfoAPI: {
     screen: NetInfoAPI
