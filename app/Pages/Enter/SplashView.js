@@ -36,7 +36,7 @@ export default class SplashView extends Component {
     }
 
     componentWillUnmount() {
-        this.timer = null;
+        clearTimeout(this.timer);
     }
 
     render() {
