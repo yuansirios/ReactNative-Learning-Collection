@@ -24,6 +24,8 @@ import AnimatedComp from './Pages/Animation/AnimatedComp'
 import GuideView from './Pages/Enter/GuideView'
 import SplashView from './Pages/Enter/SplashView'
 
+import ReduxTest from './Pages/ReduxTest/ReduxTest'
+
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
@@ -31,6 +33,9 @@ const AppNavigator = createStackNavigator({
   
   SplashView: {
     screen: SplashView
+  },
+  ReduxTest: {
+    screen: ReduxTest
   },
   Home: {
     screen: HomeList

@@ -40,6 +40,7 @@ export default class HomeList extends Component {
         { key: 'Animated动画库', component: 'AnimatedComp' },
         { key: '拍照和相册操作', component: 'ImagePickerTest' },
         { key: '网络信息查看', component: 'NetInfoAPI' },
+        { key: 'Redux使用示例', component: 'ReduxTest' },
       ],
     };
   }
